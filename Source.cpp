@@ -29,7 +29,7 @@ public:
 };
 StateContext::~StateContext(void)
 {
-	for (int count = 0; count < this->availableStates.size(); count++) delete this->availableStates[count]; // code that deletes all pointers to all of the prevoiusly saved states 
+	for (int count = 0; count < int(this->availableStates.size()); count++) delete this->availableStates[count]; // code that deletes all pointers to all of the prevoiusly saved states 
 }
 void StateContext::setState(state newState)
 {
@@ -67,6 +67,7 @@ void LightSwitchOn::pressButton(void)
 
 class LightSwitchOff :public LightSwitchState
 {
+public:
 	LightSwitchOff(StateContext* CurrentContext) :LightSwitchState(CurrentContext) {}
 	void pressButton(void);
 };
